@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Input from "./Input";
 import Button from "./Button";
 
 const MetricUnitForm = ({ onMetricUnitFormSubmit }) => {
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+  const [errors, setErrors] = useState({
+    height: "",
+    weight: "",
+  });
+
+  const handleSubmit = () => {
+    if (!height || !weight) {
+      setErrors({ height: "*required field", weight: "*required field" });
+    } else if (isNaN(parseInt(height))) {
+      setErrors({ height: "*please enter valid height", weight: "" });
+    } else if (isNaN(parseInt(weight))) {
+      setErrors({ weight: "*please enter valid weight", height: "" });
+    } else {
+      onMetricUnitFormSubmit(height, weight);
+    }
+  };
+
   return (
     <div className="metricunitform__form">
       <div className="metricunitform__input--wrapper">
@@ -11,9 +30,11 @@ const MetricUnitForm = ({ onMetricUnitFormSubmit }) => {
           type="text"
           placeholder="ENTER YOUR HEIGHT IN METERS(M)"
           label="HEIGHT(METER)"
-          onChange={() => {}}
-          value=""
-          error=""
+          onChange={(event) => {
+            setHeight(event.target.value);
+          }}
+          value={height}
+          error={errors.height}
         />
       </div>
 
@@ -22,17 +43,15 @@ const MetricUnitForm = ({ onMetricUnitFormSubmit }) => {
           type="text"
           placeholder="ENTER YOUR WEIGHT IN KILOGRAMS(kg)"
           label="WEIGHT(KILOGRAMS)"
-          onChange={() => {}}
-          value=""
-          error=""
+          onChange={(event) => {
+            setWeight(event.target.value);
+          }}
+          value={weight}
+          error={errors.weight}
         />
       </div>
 
-      <Button
-        text="CALCULATE"
-        onButtonClick={onMetricUnitFormSubmit}
-        disabled={false}
-      />
+      <Button text="CALCULATE" onButtonClick={handleSubmit} disabled={false} />
     </div>
   );
 };
