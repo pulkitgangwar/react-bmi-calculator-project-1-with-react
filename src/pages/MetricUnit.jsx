@@ -1,7 +1,6 @@
 import React from "react";
-import Input from "../components/Input";
-import Button from "../components/Button";
 import { NavLink } from "react-router-dom";
+import MetricUnitForm from "../components/MetricUnitForm";
 
 const MetricUnit = () => {
   return (
@@ -25,32 +24,11 @@ const MetricUnit = () => {
             METRIC UNIT
           </NavLink>
         </div>
-
-        <div className="metricunit__form">
-          <div className="metricunit__input--wrapper">
-            <Input
-              type="text"
-              placeholder="ENTER YOUR HEIGHT IN METERS(M)"
-              label="HEIGHT(METER)"
-              onChange={() => {}}
-              value=""
-              error=""
-            />
-          </div>
-
-          <div className="metricunit__input--wrapper">
-            <Input
-              type="text"
-              placeholder="ENTER YOUR WEIGHT IN KILOGRAMS(kg)"
-              label="WEIGHT(KILOGRAMS)"
-              onChange={() => {}}
-              value=""
-              error=""
-            />
-          </div>
-
-          <Button text="CALCULATE" onButtonClick={() => {}} disabled={false} />
-        </div>
+        <MetricUnitForm
+          onMetricUnitFormSubmit={() => {
+            console.log("hello");
+          }}
+        />
       </div>
     </div>
   );

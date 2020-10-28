@@ -39,7 +39,7 @@
       text-align: center;
       font-size: 2.4rem;
       cursor: pointer;
-      text-decoration:none;
+      text-decoration: none;
 
       @media only screen and (min-width: $tablet) {
         padding: 32px 0;
@@ -50,13 +50,5 @@
       background-color: $primary-color;
       color: $black-color-dark;
     }
-  }
-
-  &__form {
-    padding: 48px 24px;
-  }
-
-  &__input--wrapper {
-    margin-bottom: 16px;
   }
 }
