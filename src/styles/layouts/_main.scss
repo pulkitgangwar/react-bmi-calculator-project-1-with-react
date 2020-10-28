@@ -1,0 +1,61 @@
+.main {
+  width: 100%;
+  height: 100vh;
+
+  @media only screen and (min-width: $desktop) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__card {
+    background-color: $black-color-light;
+    width: 100%;
+    height: 100%;
+
+    @media only screen and (min-width: $desktop) {
+      width: 100%;
+      max-width: 800px;
+      height: unset;
+      border-radius: 36px;
+    }
+  }
+
+  &__toggle {
+    @media only screen and (min-width: $tablet) {
+      display: flex;
+    }
+
+    @media only screen and (min-width: $desktop) {
+      overflow: hidden;
+      border-radius: 36px 36px 0 0;
+    }
+
+    &__menu {
+      width: 100%;
+      padding: 16px 0;
+      background-color: $black-color-dark-2;
+      color: $white-color;
+      text-align: center;
+      font-size: 2.4rem;
+      cursor: pointer;
+
+      @media only screen and (min-width: $tablet) {
+        padding:32px 0;
+      }
+    }
+
+    &--active {
+      background-color: $primary-color;
+      color: $black-color-dark;
+    }
+  }
+
+  &__form{
+      padding:48px 24px;
+  }
+
+  &__input--wrapper {
+    margin-bottom: 16px;
+  }
+}
