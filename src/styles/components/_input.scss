@@ -24,12 +24,10 @@
     border: 1px solid transparent;
     background-color: $black-color-dark;
     border-radius: 10px;
-    margin-bottom: 8px;
 
     @media only screen and (min-width: $tablet) {
       font-size: 2.4rem;
       border: 2px solid transparent;
-      margin-bottom: 16px;
     }
 
     &:focus {
@@ -45,9 +43,11 @@
   &__error-box {
     color: $danger-color;
     font-size: 1.6rem;
+    margin-top: 8px;
 
     @media only screen and (min-width: $tablet) {
       font-size: 1.8rem;
+      margin-top: 16px;
     }
   }
 }
