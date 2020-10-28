@@ -1,7 +1,6 @@
 import React from "react";
-import Input from "../components/Input";
-import Button from "../components/Button";
 import { NavLink } from "react-router-dom";
+import StandardUnitForm from "../components/StandardUnitForm";
 
 const StandardUnit = () => {
   return (
@@ -25,42 +24,7 @@ const StandardUnit = () => {
             METRIC UNIT
           </NavLink>
         </div>
-
-        <div className="standardunit__form">
-          <div className="standardunit__input--wrapper">
-            <Input
-              type="text"
-              placeholder="ENTER YOUR HEIGHT IN FEET"
-              label="HEIGHT(FEET)"
-              onChange={() => {}}
-              value=""
-              error=""
-            />
-          </div>
-          <div className="standardunit__input--wrapper">
-            <Input
-              type="text"
-              placeholder="INCHES"
-              label="INCHES"
-              onChange={() => {}}
-              value=""
-              error=""
-            />
-          </div>
-
-          <div className="standardunit__input--wrapper">
-            <Input
-              type="text"
-              placeholder="ENTER YOUR WEIGHT IN POUNDS"
-              label="WEIGHT(POUNDS)"
-              onChange={() => {}}
-              value=""
-              error=""
-            />
-          </div>
-
-          <Button text="CALCULATE" onButtonClick={() => {}} disabled={false} />
-        </div>
+        <StandardUnitForm onStandardUnitFormSubmit={() => {}} />
       </div>
     </div>
   );
