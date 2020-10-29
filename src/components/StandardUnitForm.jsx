@@ -49,23 +49,26 @@ const StandardUnitForm = ({ onStandardUnitFormSubmit }) => {
         weight: "*required field",
         heightInInches: "",
       });
-    } else if (isNaN(parseInt(height))) {
+    } else if (isNaN(parseInt(height)) || parseFloat(height) >= 99999) {
       setErrors({
         height: "*please enter valid height",
         weight: "",
         heightInInches: "",
       });
-    } else if (isNaN(parseInt(weight))) {
+    } else if (
+      (heightInInches && isNaN(parseInt(heightInInches))) ||
+      parseFloat(heightInInches) >= 9999
+    ) {
+      setErrors({
+        heightInInches: "*please enter valid height",
+        weight: "",
+        height: "",
+      });
+    } else if (isNaN(parseInt(weight)) || parseFloat(weight) >= 99999) {
       setErrors({
         weight: "*please enter valid weight",
         height: "",
         heightInInches: "",
-      });
-    } else if (heightInInches && isNaN(parseInt(heightInInches))) {
-      setErrors({
-        heightInInches: "*please enter valid height in inch",
-        weight: "",
-        height: "",
       });
     } else {
       setErrors({ height: "", weight: "", heightInInches: "" });

@@ -41,9 +41,9 @@ const MetricUnitForm = ({ onMetricUnitFormSubmit }) => {
     event.preventDefault();
     if (!height || !weight) {
       setErrors({ height: "*required field", weight: "*required field" });
-    } else if (isNaN(parseInt(height))) {
+    } else if (isNaN(parseInt(height)) || parseFloat(height) >= 99999) {
       setErrors({ height: "*please enter valid height", weight: "" });
-    } else if (isNaN(parseInt(weight))) {
+    } else if (isNaN(parseInt(weight)) || parseFloat(weight) >= 99999) {
       setErrors({ weight: "*please enter valid weight", height: "" });
     } else {
       setErrors({ weight: "", height: "" });
