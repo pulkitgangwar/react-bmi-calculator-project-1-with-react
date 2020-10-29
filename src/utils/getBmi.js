@@ -1,12 +1,12 @@
 const getBmi = (mesurements, unitType) => {
+  const height = parseInt(mesurements.height);
+  const weight = parseInt(mesurements.weight);
+  const heightInInches = parseInt(mesurements.heightInInches) || 0;
   if (unitType === "metricUnit") {
-    return (mesurements.weight / Math.pow(mesurements.height, 2)).toFixed(3);
+    return (weight / Math.pow(height, 2)).toFixed(3);
   } else if (unitType === "imperialUnit") {
-    return (
-      703 *
-      (mesurements.weight /
-        Math.pow(mesurements.height * 12 + mesurements.heightInInches, 2))
-    ).toFixed(3);
+    const totalHeight = parseInt(height) * 12 + heightInInches;
+    return (703 * (weight / Math.pow(totalHeight, 2))).toFixed(3);
   }
   throw new Error("invalid unitType");
 };
