@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Input from "./Input";
 import Button from "./Button";
@@ -12,6 +12,35 @@ const StandardUnitForm = ({ onStandardUnitFormSubmit }) => {
     heightInInches: "",
     weight: "",
   });
+
+  useEffect(() => {
+    if (!localStorage.getItem("imperialUnit")) {
+      localStorage.setItem(
+        "imperialUnit",
+        JSON.stringify({
+          height: "",
+          heightInInches: "",
+          weight: "",
+        })
+      );
+    } else {
+      const data = JSON.parse(localStorage.getItem("imperialUnit"));
+      setHeight(data.height);
+      setHeightInInches(data.heightInInches);
+      setWeight(data.weight);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "imperialUnit",
+      JSON.stringify({
+        height,
+        weight,
+        heightInInches,
+      })
+    );
+  }, [height, weight, heightInInches]);
 
   const handleSubmit = (event) => {
     if (!height || !weight) {

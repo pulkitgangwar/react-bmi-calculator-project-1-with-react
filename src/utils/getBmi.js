@@ -1,7 +1,7 @@
 const getBmi = (mesurements, unitType) => {
-  const height = parseInt(mesurements.height);
-  const weight = parseInt(mesurements.weight);
-  const heightInInches = parseInt(mesurements.heightInInches) || 0;
+  const height = parseFloat(mesurements.height);
+  const weight = parseFloat(mesurements.weight);
+  const heightInInches = parseFloat(mesurements.heightInInches) || 0;
   if (unitType === "metricUnit") {
     return (weight / Math.pow(height, 2)).toFixed(3);
   } else if (unitType === "imperialUnit") {
