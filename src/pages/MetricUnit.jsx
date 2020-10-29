@@ -1,8 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import swal from "@sweetalert/with-react";
 import MetricUnitForm from "../components/MetricUnitForm";
+import getBmi from "../utils/getBmi";
+import getCategory from "../utils/getCategory";
 
 const MetricUnit = () => {
+  const handleFormSubmit = (height, weight) => {
+    const bmi = getBmi({ height, weight }, "metricUnit");
+    const { category } = getCategory(bmi);
+    swal({
+      title: "RESULT",
+      text: `${bmi} - ${category}`,
+    });
+  };
+
   return (
     <div className="metricunit">
       <div className="metricunit__card">
@@ -24,11 +36,7 @@ const MetricUnit = () => {
             METRIC UNIT
           </NavLink>
         </div>
-        <MetricUnitForm
-          onMetricUnitFormSubmit={() => {
-            console.log("hello");
-          }}
-        />
+        <MetricUnitForm onMetricUnitFormSubmit={handleFormSubmit} />
       </div>
     </div>
   );
