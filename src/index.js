@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import App from "./App";
+import "./styles/main.scss";
 
-// BMI component
-import BMI from "./bmi-calculator/BMI";
-
-// form component
-// import Form from "./form/Form";
-
-// time component
-// import Time from "./time/Time";
-
-ReactDOM.render(<BMI />, document.getElementById("root"));
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById("root")
+);

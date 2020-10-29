@@ -1,0 +1,53 @@
+.input {
+  background-color: $black-color-light;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    color: $white-color;
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+
+    @media only screen and (min-width: $tablet) {
+      margin-bottom: 16px;
+      font-size: 2.4rem;
+    }
+  }
+
+  &__input {
+    padding: 16px;
+    font-weight: $extra-bold;
+    color: $white-color;
+    font-size: 1.6rem;
+    font-family: inherit;
+    border: 1px solid transparent;
+    background-color: $black-color-dark;
+    border-radius: 10px;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 2.4rem;
+      border: 2px solid transparent;
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $primary-color;
+
+      @media only screen and (min-width: $tablet) {
+        border: 2px solid $primary-color;
+      }
+    }
+  }
+
+  &__error-box {
+    color: $danger-color;
+    font-size: 1.6rem;
+    margin-top: 8px;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 1.8rem;
+      margin-top: 16px;
+    }
+  }
+}

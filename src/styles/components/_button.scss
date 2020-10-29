@@ -1,0 +1,31 @@
+@mixin stateChange {
+  background-color: rgba($primary-color, 0.9);
+}
+
+.button {
+  width: 100%;
+  padding: 16px 0;
+  text-align: center;
+  background-color: $primary-color;
+  color: $black-color-dark;
+  font-family: inherit;
+  font-size: 2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    @include stateChange();
+  }
+
+  &:hover {
+    @media only screen and (min-width: $desktop) {
+      @include stateChange();
+    }
+  }
+
+  @media only screen and (min-width: $tablet) {
+    font-size: 3rem;
+  }
+}
