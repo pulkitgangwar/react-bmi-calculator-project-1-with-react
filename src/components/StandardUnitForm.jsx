@@ -32,14 +32,12 @@ const StandardUnitForm = ({ onStandardUnitFormSubmit }) => {
         height: "",
         heightInInches: "",
       });
-    } else if (heightInInches) {
-      if (isNaN(parseInt(heightInInches))) {
-        setErrors({
-          heightInInches: "*please enter valid height in inch",
-          weight: "",
-          height: "",
-        });
-      }
+    } else if (heightInInches && isNaN(parseInt(heightInInches))) {
+      setErrors({
+        heightInInches: "*please enter valid height in inch",
+        weight: "",
+        height: "",
+      });
     } else {
       setErrors({ height: "", weight: "", heightInInches: "" });
       onStandardUnitFormSubmit(height, heightInInches || 0, weight);
