@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Input from "./Input";
 import Button from "./Button";
@@ -10,6 +10,32 @@ const MetricUnitForm = ({ onMetricUnitFormSubmit }) => {
     height: "",
     weight: "",
   });
+
+  useEffect(() => {
+    if (!localStorage.getItem("metricUnit")) {
+      localStorage.setItem(
+        "metricUnit",
+        JSON.stringify({
+          height: "",
+          weight: "",
+        })
+      );
+    } else {
+      const data = JSON.parse(localStorage.getItem("metricUnit"));
+      setHeight(data.height);
+      setWeight(data.weight);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "metricUnit",
+      JSON.stringify({
+        height,
+        weight,
+      })
+    );
+  }, [height, weight]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
