@@ -2,6 +2,7 @@ import React from "react";
 import StandardUnit from "./pages/StandardUnit";
 import MetricUnit from "./pages/MetricUnit";
 import { Redirect, Route, Switch } from "react-router-dom";
+import BMI from "./old-bmi-calculator/BMI";
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <Route exact path="/" render={() => <Redirect to="/metric-unit" />} />
       <Route exact path="/metric-unit" component={MetricUnit} />
       <Route exact path="/standard-unit" component={StandardUnit} />
+      <Route exact path="/old-bmi-calculator" component={BMI} />
       <Route exact render={() => <h1>404</h1>} />
     </Switch>
   );
