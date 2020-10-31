@@ -1,0 +1,10 @@
+.back {
+  & a {
+    color: $primary-color-light;
+    font-size: 1.8rem;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: 2.4rem;
+    }
+  }
+}

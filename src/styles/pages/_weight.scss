@@ -1,0 +1,23 @@
+.weight {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (min-width: $desktop) {
+    justify-content: center;
+  }
+
+  &__card {
+    background-color: $black-color-light;
+    width: 100%;
+    height: 100%;
+
+    @media only screen and (min-width: $desktop) {
+      width: 100%;
+      max-width: 800px;
+      height: unset;
+      border-radius: 36px;
+    }
+  }
+}
