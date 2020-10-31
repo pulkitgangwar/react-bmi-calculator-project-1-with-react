@@ -18,7 +18,16 @@ const MetricUnit = () => {
   return (
     <div className="metricunit">
       <div className="metricunit__card">
-        <Toggle />
+        <Toggle
+          primaryToggle={{
+            title: "standard unit",
+            link: "/standard-unit",
+          }}
+          secondaryToggle={{
+            title: "metric unit",
+            link: "/metric-unit",
+          }}
+        />
         <MetricUnitForm onMetricUnitFormSubmit={handleFormSubmit} />
       </div>
     </div>
