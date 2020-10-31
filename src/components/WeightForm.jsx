@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "./Input";
-import Back from './Back';
+import Back from "./Back";
 
 const WeightForm = () => {
   const [pound, setPound] = useState("");
@@ -9,6 +9,32 @@ const WeightForm = () => {
     pound: "",
     kilogram: "",
   });
+
+  useEffect(() => {
+    if (!localStorage.getItem("weightUnits")) {
+      localStorage.setItem(
+        "weightUnits",
+        JSON.stringify({
+          pound: "",
+          kilogram: "",
+        })
+      );
+    } else {
+      const data = JSON.parse(localStorage.getItem("weightUnits"));
+      setPound(data.pound);
+      setKilogram(data.kilogram);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "weightUnits",
+      JSON.stringify({
+        pound,
+        kilogram,
+      })
+    );
+  }, [pound, kilogram]);
 
   const onPoundChange = (event) => {
     const value = event.target.value;

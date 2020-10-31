@@ -14,6 +14,38 @@ const HeightForm = () => {
     feet: "",
   });
 
+  useEffect(() => {
+    if (!localStorage.getItem("heightUnits")) {
+      localStorage.setItem(
+        "heightUnits",
+        JSON.stringify({
+          centimeter: "",
+          meter: "",
+          inches: "",
+          feet: "",
+        })
+      );
+    } else {
+      const data = JSON.parse(localStorage.getItem("heightUnits"));
+      setCentimeter(data.centimeter);
+      setMeter(data.meter);
+      setInches(data.inches);
+      setFeet(data.feet);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "heightUnits",
+      JSON.stringify({
+        centimeter,
+        meter,
+        inches,
+        feet,
+      })
+    );
+  }, [centimeter, meter, inches, feet]);
+
   const onCentimeterChange = (event) => {
     const value = event.target.value;
     setCentimeter(value);
