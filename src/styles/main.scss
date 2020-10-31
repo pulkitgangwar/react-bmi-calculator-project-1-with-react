@@ -4,11 +4,15 @@
 
 // components
 @import "./components/button";
+@import "./components/heightform";
 @import "./components/input";
 @import "./components/metricunitform";
 @import "./components/standardunitform";
 @import "./components/toggle";
+@import "./components/weightform";
 
 // pages
+@import "./pages/height";
 @import "./pages/metricunit";
 @import "./pages/standardunit";
+@import "./pages/weight";
