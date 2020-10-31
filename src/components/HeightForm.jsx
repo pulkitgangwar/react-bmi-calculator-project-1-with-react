@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Back from "./Back";
 import Input from "./Input";
 
 const HeightForm = () => {
@@ -146,6 +147,9 @@ const HeightForm = () => {
           value={feet}
           error={errors.feet}
         />
+      </div>
+      <div className="heightform__back">
+        <Back text="BMI Calculator" link="/metric-unit" />
       </div>
     </div>
   );

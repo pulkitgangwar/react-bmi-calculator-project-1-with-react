@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from "./Input";
+import Back from './Back';
 
 const WeightForm = () => {
   const [pound, setPound] = useState("");
@@ -46,8 +47,8 @@ const WeightForm = () => {
   };
 
   return (
-    <div className="heightform__form">
-      <div className="heightform__input--wrapper">
+    <div className="weightform__form">
+      <div className="weightform__input--wrapper">
         <Input
           type="text"
           placeholder="ENTER VALUE IN POUND(LB)"
@@ -58,7 +59,7 @@ const WeightForm = () => {
         />
       </div>
 
-      <div className="heightform__input--wrapper">
+      <div className="weightform__input--wrapper">
         <Input
           type="text"
           placeholder="ENTER VALUE IN KILOGRAM(KG)"
@@ -67,6 +68,9 @@ const WeightForm = () => {
           value={kilogram}
           error={errors.kilogram}
         />
+      </div>
+      <div className="weightform__back">
+        <Back text="BMI Calculator" link="/metric-unit" />
       </div>
     </div>
   );

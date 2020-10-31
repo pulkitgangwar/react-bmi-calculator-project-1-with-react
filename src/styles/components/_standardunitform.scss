@@ -6,4 +6,11 @@
   &__input--wrapper {
     margin-bottom: 16px;
   }
+
+  &__back {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
